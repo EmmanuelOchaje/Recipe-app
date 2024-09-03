@@ -5,20 +5,121 @@
   --primary-color: rgb(255, 0, 86);
   --text-color: #0a0a0a;
   --text-light: #575757;
-  --font-size: 1rem;
+  --font-size: 0.9rem;
   --animation-speed: 1;
 }
+@function getAnimationDuration($duration: number) {
+  @return calc($duration * var(--animation-speed));
+}
+
 * {
   margin: 0;
   padding: 0;
   font-family: "Poppins", sans-serif;
 }
+a {
+  text-decoration: none;
+}
 body {
   font-size: var(--font-size);
 }
-.navbar {
-  height: 3.5rem;
-  box-shadow: 0 3px 6px var(--shadow-color);
-  background-color: var(--background-color);
-  color: var(--text-color);
+.btn {
+  border: none;
+  outline: none;
+  background-color: green;
+  padding: 0.5rem;
+  color: white;
+  border-radius: 5px;
+  font-size: 1rem;
+  box-shadow: 0 1px 2px black;
+  &:hover {
+    box-shadow: 0 2x 5px black;
+  }
+}
+img {
+  object-fit: cover;
+}
+.custom-image {
+  background-color: green;
+  height: 0;
+  width: 10rem;
+  padding-top: 70%;
+  border-radius: 10px;
+  position: relative;
+  img {
+    position: absolute;
+    top: 0;
+    width: 10rem;
+    height: 7rem;
+    border-radius: 10px;
+  }
+}
+@import "./partials/navbar.scss";
+@import "./partials/sections.scss";
+.main {
+  padding-block: 3vw;
+}
+.container {
+  padding-inline: 17vw;
+}
+@import "./partials/animations.scss";
+@import "./partials/improveskill.scss";
+@import "./partials/quote.scss";
+@import "./partials/chef.scss";
+
+.footer {
+  background-color: #0a0a0a;
+  color: white;
+  padding-block: 4rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-gap: 1rem;
+  .footer-section {
+    p {
+      opacity: 0.8;
+      margin-bottom: 0.5rem;
+    }
+    p.title {
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+  }
+}
+@media screen and (max-width: 1280px) {
+  .container {
+    padding-inline: 18vw;
+  }
+}
+@media screen and (max-width: 1050px) {
+  .container {
+    padding-inline: 12vw;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    .nav-links {
+      display: none;
+    }
+    .sidebar-btn {
+      display: block;
+    }
+  }
+  .container {
+    padding-inline: 6vw;
+  }
+  .section {
+    .col {
+      width: 100%;
+      flex-wrap: wrap;
+    }
+    // .gallery {
+    //   grid-template-columns: repeat(2, 1fr);
+    // }
+  }
+}
+@media screen and (max-width: 1050px) {
+  .container {
+    padding-inline: 3vw;
+  }
 }
